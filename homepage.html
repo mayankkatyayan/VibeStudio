@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage - Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: white;
+      line-height: 1.6;
+      padding: 0 5rem;
+    }
+
+    header {
+      background-color: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header .logo {
+      font-weight: bold;
+    }
+    .navbar {
+            position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            background: #1b1b1b;
+        }
+
+        .navbar nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-btn {
+      background-color: #a4ff00;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero h1 .highlight {
+      color: #a4ff00;
+    }
+
+    .hero p {
+      max-width: 500px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      background-color: #a4ff00;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .cards-container,
+    .services-container,
+    .case-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 2rem;
+      gap: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .card,
+    .service-card,
+    .case-card {
+      background: linear-gradient(to bottom, #1a1a1a, #1d2602);
+      padding: 1rem;
+      border-radius: 8px;
+      min-width: 280px;
+      scroll-snap-align: start;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 3rem;
+    }
+
+    .section-title .highlight {
+      color: #a4ff00;
+    }
+
+    .carousel-dots {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .dot {
+      height: 8px;
+      width: 8px;
+      margin: 0 4px;
+      background-color: #a4ff00;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .icon {
+      float: right;
+      background-color: #a4ff00;
+      padding: 0.3rem;
+      border-radius: 5px;
+      color: black;
+    }
+
+    .section-description {
+      text-align: center;
+      max-width: 600px;
+      margin: 0.5rem auto 2rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #ccc;
+    }
+
+    .service-card {
+      background-color: #2a3317;
+      padding: 1rem 1.5rem;
+      border-radius: 5px;
+      min-width: 250px;
+      text-align: center;
+      color: #fff;
+      font-weight: 500;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .workflow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .workflow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1rem;
+    }
+
+    .circle {
+      width: 10px;
+      height: 10px;
+      background-color: #a5ff32;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-card {
+      background-color: #2a3317;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .step-card small {
+      display: block;
+      color: #aaa;
+      font-weight: normal;
+      margin-top: 0.3rem;
+      font-size: 0.75rem;
+    }
+
+    .workflow-line {
+      width: 30px;
+      height: 2px;
+      background: #a5ff32;
+    }
+
+    .workflow-line.vertical {
+      height: 20px;
+      width: 2px;
+
+    }
+
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      background-color: #111;
+    }
+
+    .case-study-section {
+      background-color: #111;
+      padding: 2rem 1rem;
+      color: white;
+    }
+
+    .section-title {
+      text-align: left;
+      font-size: 2rem;
+      margin-left: 1rem;
+    }
+
+    .highlight {
+      color: #a5ff32;
+    }
+
+    .carousel {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem;
+      scroll-snap-align: start;
+      scroll-behavior: smooth;
+    }
+
+    .case-card {
+      flex: 0 0 80%;
+      background-color: #202a0f;
+      border-radius: 16px;
+      padding: 1rem;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      min-width: 80%;
+    }
+
+    .image-placeholder {
+      background-color: #111;
+      height: 180px;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .case-info h3 {
+      color: white;
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    .case-info p {
+      color: #ccc;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .view-btn {
+      margin-top: 1rem;
+      background-color: #a5ff32;
+      color: #111;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      justify-content: flex-start;
+      gap: 8px;
+      margin: 1rem;
+      margin-left: 1.2rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #444;
+    }
+
+    .dot.active {
+      background-color: #a5ff32;
+    }
+
+  
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .blogs-section {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .blogs-title {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .highlight {
+      color: #a5ff32;
+    }
+
+    .blogs-subtitle {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .blogs-container {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .blog-card {
+      background-color: #1e2a0f;
+      border-radius: 20px;
+      padding: 1rem;
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-image {
+      background-color: #111;
+      height: 160px;
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .blog-info h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      color: white;
+    }
+
+    .blog-date {
+      font-size: 0.85rem;
+      color: #ccc;
+      margin-top: 0.3rem;
+    }
+
+    .cta-section {
+      background-color: #111;
+      padding: 4rem 1rem 0 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .cta-button {
+      background-color: #a5ff32;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #8edf29;
+    }
+
+    .brand-text {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #a5ff32;
+      margin: 4rem 0 2rem 0;
+    }
+
+    .footer {
+      border-top: 1px solid #a5ff32;
+      padding: 2rem 1rem;
+      background-color: #0c0c0c;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .footer-logo {
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .footer-bottom a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .cards-container,
+      .services-container,
+      .case-container {
+        padding: 1rem;
+        flex-direction: column;
+      }
+
+      .card,
+      .service-card,
+      .case-card {
+        min-width: 100%;
+      }
+
+      .services-container,
+      .workflow {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .workflow-line {
+        display: none;
+      }
+
+      .case-card {
+        min-width: 90%;
+      }
+
+      .blogs-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .brand-text {
+        font-size: 2.5rem;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <header class = "navbar">
+    <div class="logo">logoipsum</div>
+    <nav>
+      <a href="/homepage.html">Home</a>
+      <a href="/aboutus.html">About us</a>
+      <a href="/project.html">Our Project</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+    <a class="contact-btn" href="/contact.html">Contact Us</a>
+  </header>
+
+  <section class="hero">
+    <h1>Crafting <br> Bold Ideas <br> That <span class="highlight">Speak</span></h1>
+    <p>
+      At Studio, we believe in the power of storytelling through design. Whether it’s a brand launch or a digital
+      transformation,
+      we craft experiences that connect with people and elevate businesses.
+    </p>
+    <a href="#" class="btn">View Projects</a>
+  </section>
+
+  <section>
+    <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+    <p style="text-align:center; max-width:600px; margin: auto; font-size: 0.9rem;">
+      Scroll through a few of our favorite creations that showcase our range—from minimalist branding to vibrant social
+      media campaigns.
+    </p>
+    <div class="cards-container">
+      <div class="card">
+        <strong>GlowUp</strong><br>
+        <span>Rebranding a modern beauty brand for Gen Z appeal.</span>
+        <span class="icon">↗</span>
+      </div>
+      <div class="card">
+        <strong>Pulse</strong><br>
+        <span>UI/UX overhaul for a fitness startup targeting millennial users.</span>
+        <span class="icon">↗</span>
+      </div>
+      <div class="card">
+        <strong>EcoSphere</strong><br>
+        <span>Sustainable packaging redesign for an eco-friendly product line.</span>
+        <span class="icon">↗</span>
+      </div>
+      <div class="card">
+        <strong>TechNest</strong><br>
+        <span>Developing a user-friendly app for remote work collaboration.</span>
+        <span class="icon">↗</span>
+      </div>
+    </div>
+    <div class="carousel-dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <h2 class="section-title">Our <span class="highlight">Services</span></h2>
+    <p class="section-description">
+      We offer end-to-end creative solutions tailored for your vision. Whether you're starting from scratch or
+      reimagining your brand, our team delivers impactful design that makes you stand out.
+    </p>
+    <div class="services-container">
+      <div class="service-card">Brand Strategy & Identity</div>
+      <div class="service-card">UI/UX Design for Web & Mobile</div>
+      <div class="service-card">Social Media & Content Marketing</div>
+      <div class="service-card">Social Media & Content Marketing</div>
+    </div>
+  </section>
+
+  <section class="workflow-section">
+    <h2 class="section-title">How We <span class="highlight">Work</span></h2>
+    <p class="section-description">
+      At VibeStudio, our process is rooted in clarity, collaboration, and craftsmanship. We break down complex ideas
+      into intuitive solutions that drive results.
+    </p>
+    <div class="workflow">
+      <div class="workflow-step">
+        <div class="circle"></div>
+        <div class="step-card">Discover<br><small>Understand client needs</small></div>
+      </div>
+      <div class="workflow-line"></div>
+      <div class="workflow-step">
+        <div class="circle"></div>
+        <div class="step-card">Design<br><small>Visualize the concept</small></div>
+      </div>
+      <div class="workflow-line vertical"></div>
+      <div class="workflow-step">
+        <div class="circle"></div>
+        <div class="step-card">Deliver<br><small>Implement & handoff</small></div>
+      </div>
+      <div class="workflow-line"></div>
+      <div class="workflow-step">
+        <div class="circle"></div>
+        <div class="step-card">Support<br><small>Ensure success post-launch</small></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="case-study-section">
+    <h2 class="section-title">Case <span class="highlight">Study</span></h2>
+    <div class="carousel">
+      <div class="carousel-track">
+        <!-- Card 1 -->
+        <div class="case-card">
+          <img src="https://via.placeholder.com/800x400/1a1a1a/ffffff?text=Project+Preview" alt="Project Screenshot"
+            class="card-image" />
+          <div class="case-info">
+            <h3>NovaLearn – E-learning Platform UI/UX</h3>
+            <p>We offer end-to-end creative solutions tailored for your vision. Whether you're starting from scratch or
+              reimagining your brand, our team delivers impactful design that makes you stand out.</p>
+            <a href="#" class="view-btn">View Projects →</a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="case-card">
+          <img src="https://via.placeholder.com/800x400/1a1a1a/ffffff?text=Project+Preview" alt="Project Screenshot"
+            class="card-image" />
+          <div class="case-info">
+            <h3>NovaLearn – E-learning Platform UI/UX</h3>
+            <p>We offer end-to-end creative solutions tailored for your vision. Whether you're starting from scratch or
+              reimagining your brand, our team delivers impactful design that makes you stand out.</p>
+            <a href="#" class="view-btn">View Projects →</a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="case-card">
+          <img src="https://via.placeholder.com/800x400/1a1a1a/ffffff?text=Project+Preview" alt="Project Screenshot"
+            class="card-image" />
+          <div class="case-info">
+            <h3>NovaLearn – E-learning Platform UI/UX</h3>
+            <p>We offer end-to-end creative solutions tailored for your vision. Whether you're starting from scratch or
+              reimagining your brand, our team delivers impactful design that makes you stand out.</p>
+            <a href="#" class="view-btn">View Projects →</a>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="case-card">
+          <img src="https://via.placeholder.com/800x400/1a1a1a/ffffff?text=Project+Preview" alt="Project Screenshot"
+            class="card-image" />
+          <div class="case-info">
+            <h3>NovaLearn – E-learning Platform UI/UX</h3>
+            <p>We offer end-to-end creative solutions tailored for your vision. Whether you're starting from scratch or
+              reimagining your brand, our team delivers impactful design that makes you stand out.</p>
+            <a href="#" class="view-btn">View Projects →</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-indicators">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="blogs-section">
+    <h2 class="blogs-title">Our <span class="highlight">Blogs</span></h2>
+    <p class="blogs-subtitle">Branding, UX, UI, Motion, Strategy</p>
+
+    <div class="blogs-container">
+      <!-- Blog Card 1 -->
+      <div class="blog-card">
+        <div class="blog-image"></div>
+        <div class="blog-info">
+          <h3>Designing for Emotions</h3>
+          <p class="blog-date">Jan 22, 2025</p>
+        </div>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="blog-card">
+        <div class="blog-image"></div>
+        <div class="blog-info">
+          <h3>5 Figma Plugins</h3>
+          <p class="blog-date">Feb 3, 2025</p>
+        </div>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="blog-card">
+        <div class="blog-image"></div>
+        <div class="blog-info">
+          <h3>Moodboarding 101</h3>
+          <p class="blog-date">Mar 10, 2025</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+  <div class="cta-content">
+    <h2>Let’s create the next big thing,<br />together.</h2>
+    <button class="cta-button">Talk to us</button>
+  </div>
+
+  <h1 class="brand-text">VIBE STUDIO</h1>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <p><strong>logoipsum</strong></p>
+        <p>We craft Yor Imagination</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Linkedin</a>
+        <a href="#">Instagram</a>
+        <a href="#">Behance</a>
+        <a href="#">Dribbble</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <a href="#">Privacy Policy</a>
+      <span>All rights reserved.</span>
+      <a href="#">Terms of Service</a>
+    </div>
+  </footer>
+</section>
+
+
+</body>
+
+</html>

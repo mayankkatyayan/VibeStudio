@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: white;
+      line-height: 1.6;
+      padding: 0 5rem;
+    }
+
+    header {
+      background-color: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header .logo {
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #1b1b1b;
+    }
+
+    .navbar nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .contact-btn {
+      background-color: #a4ff00;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .blog-container {
+      display: flex;
+      gap: 40px;
+      padding: 50px 40px;
+      flex-wrap: wrap;
+    }
+
+    .blog-content {
+      flex: 1 1 400px;
+      max-width: 700px;
+    }
+
+    .blog-image {
+      flex: 1 1 300px;
+      background-color: #1b1b1b;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 400px;
+    }
+
+    .blog-image img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .highlight {
+      color: #A2FF00;
+    }
+
+    .date {
+      color: #bbb;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .share-section {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .share-label {
+      color: #A2FF00;
+      font-weight: bold;
+    }
+
+    .social-icons a img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .related-blogs {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .related-blogs h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .related-blogs h2 span {
+      color: #a4ff2c;
+    }
+
+    .related-blogs p {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    .blog-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .blog-card {
+      background: linear-gradient(180deg, #151e0f 0%, #0f0f0f 100%);
+      border-radius: 18px;
+      width: 280px;
+      padding-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 18px 18px 0 0;
+      background: #1b1b1b;
+    }
+
+    .blog-title {
+      font-weight: 600;
+      font-size: 16px;
+      padding: 12px 16px 4px;
+      text-align: left;
+    }
+
+    .blog-date {
+      font-size: 13px;
+      padding: 0 16px;
+      color: #ccc;
+      text-align: left;
+    }
+
+    .cta-section {
+      background-color: #111;
+      padding: 4rem 1rem 0 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .cta-button {
+      background-color: #a5ff32;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #8edf29;
+    }
+
+    .brand-text {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #a5ff32;
+      margin: 4rem 0 2rem 0;
+    }
+
+    .footer {
+      border-top: 1px solid #a5ff32;
+      padding: 2rem 1rem;
+      background-color: #0c0c0c;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .footer-logo {
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .footer-bottom a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+
+
+    @media (max-width: 768px) {
+      .blog-container {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+
+      .blog-image {
+        min-height: 200px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .navbar nav {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .blog-card {
+        width: 90%;
+      }
+
+      .brand-text {
+        font-size: 2.5rem;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+  <header class="navbar">
+    <div class="logo">logoipsum</div>
+    <nav>
+      <a href="/homepage.html">Home</a>
+      <a href="/aboutus.html">About us</a>
+      <a href="/project.html">Our Project</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+    <a class="contact-btn" href="/contact.html">Contact Us</a>
+  </header>
+  <section class="blog-container">
+    <div class="blog-content">
+      <h1>Designing for<br>Emotions in <span class="highlight">2025</span></h1>
+      <p class="date">Jan 22, 2025</p>
+      <p>In today’s fast-paced digital world, emotional connection through design is more important than ever. Gone are
+        the days when aesthetics alone could win user loyalty; today’s users crave authentic, meaningful interactions
+        that resonate on a deeper level. Emotionally intelligent design taps into the human psyche, guiding users not
+        only with logic but with empathy. It’s the difference between an interface that simply works and one that feels
+        right.</p>
+      <p>As we step into 2025, designers must prioritize emotional resonance just as much as functionality. From the
+        tone of voice in microcopy to the colors, spacing, and even the rhythm of animations—every detail contributes to
+        an emotional landscape that shapes perception. Think of how a well-timed success animation can boost confidence,
+        or how a thoughtful empty state can reduce frustration. These subtle elements add up, forging bonds that keep
+        users coming back—not just for the product, but for the experience it delivers.</p>
+      <p>Incorporating emotional design doesn’t mean adding unnecessary flourishes; it’s about intentionality and
+        empathy. By putting ourselves in the user’s shoes, we can design experiences that comfort, excite, encourage,
+        and empower. At VibeStudio, this philosophy drives everything we create.</p>
+      <div class="share-section">
+        <span class="share-label">Share on</span>
+        <div class="social-icons">
+          <a href="linkedin.in"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" /></a>
+          <a href="facebook.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-image">
+      <img src="https://placehold.co/500x400/1b1b1b/ffffff.svg?text=Blog+Image" alt="Blog illustration" />
+    </div>
+  </section>
+  <section class="related-blogs">
+    <h2>Related <span>Blogs</span></h2>
+    <p>Branding, UX, UI, Motion, Strategy</p>
+
+    <div class="blog-cards">
+      <div class="blog-card">
+        <img src="https://placehold.co/500x300/1b1b1b/ffffff.svg?text=Image+1" alt="Blog 1">
+        <div class="blog-title">Designing for Emotions</div>
+        <div class="blog-date">Jan 22, 2025</div>
+      </div>
+
+      <div class="blog-card">
+        <img src="https://placehold.co/500x300/1b1b1b/ffffff.svg?text=Image+2" alt="Blog 2">
+        <div class="blog-title">5 Figma Plugins</div>
+        <div class="blog-date">Feb 3, 2025</div>
+      </div>
+
+      <div class="blog-card">
+        <img src="https://placehold.co/500x300/1b1b1b/ffffff.svg?text=Image+3" alt="Blog 3">
+        <div class="blog-title">Moodboarding 101</div>
+        <div class="blog-date">Mar 10, 2025</div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Let’s create the next big thing,<br />together.</h2>
+      <button class="cta-button">Talk to us</button>
+    </div>
+
+    <h1 class="brand-text">VIBE STUDIO</h1>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <p><strong>logoipsum</strong></p>
+          <p>We craft Yor Imagination</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Linkedin</a>
+          <a href="#">Instagram</a>
+          <a href="#">Behance</a>
+          <a href="#">Dribbble</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <a href="#">Privacy Policy</a>
+        <span>All rights reserved.</span>
+        <a href="#">Terms of Service</a>
+      </div>
+    </footer>
+  </section>
+</body>
+
+</html>

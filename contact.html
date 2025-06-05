@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: white;
+      line-height: 1.6;
+      padding: 0 5rem;
+    }
+
+    header {
+      background-color: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header .logo {
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #1b1b1b;
+    }
+
+    .navbar nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+
+
+
+    .contact-btn {
+      background-color: #a4ff00;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cta-section {
+      background-color: #111;
+      padding: 4rem 1rem 0 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .cta-button {
+      background-color: #a5ff32;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #8edf29;
+    }
+
+    .brand-text {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #a5ff32;
+      margin: 4rem 0 2rem 0;
+    }
+
+    .footer {
+      border-top: 1px solid #a5ff32;
+      padding: 2rem 1rem;
+      background-color: #0c0c0c;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .footer-logo {
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .footer-bottom a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .page-section {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .page-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background-color: #1b1b1b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #2a2a2a;
+      color: white;
+    }
+
+    .contact-form select option {
+      background: #2a2a2a;
+    }
+
+
+    .contact-form button {
+      background: linear-gradient(to right, #c2ff00, #7eff00);
+      color: #000;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+
+    @media (max-width: 768px) {
+
+
+
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        position: fixed;
+      }
+
+      .navbar nav {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .blog-card {
+        width: 90%;
+      }
+
+      .brand-text {
+        font-size: 2.5rem;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+
+
+
+
+<body>
+  <header class = "navbar">
+    <div class="logo">logoipsum</div>
+    <nav>
+      <a href="/homepage.html">Home</a>
+      <a href="/aboutus.html">About us</a>
+      <a href="/project.html">Our Project</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+    <a class="contact-btn" href="/contact.html">Contact Us</a>
+  </header>
+
+  <main class="content">
+    <section class="page-section">
+      <h1>Contact Us</h1>
+
+      <form name="contact" method="POST" data-netlify="true" action="/thankyou.html" class="contact-form">
+        <input type="hidden" name="form-name" value="contact" />
+
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+
+        <select name="projectType" required>
+          <option value="">Select Project Type</option>
+          <option>Website Design</option>
+          <option>App Development</option>
+          <option>Branding</option>
+        </select>
+
+        <textarea name="message" placeholder="Message" rows="4" required></textarea>
+
+        <button type="submit" href="thankyou.html">Get Started </button>
+      </form>
+
+    </section>
+  </main>
+
+
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Let’s create the next big thing,<br />together.</h2>
+      <button class="cta-button">Talk to us</button>
+    </div>
+
+    <h1 class="brand-text">VIBE STUDIO</h1>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <p><strong>logoipsum</strong></p>
+          <p>We craft Yor Imagination</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Linkedin</a>
+          <a href="#">Instagram</a>
+          <a href="#">Behance</a>
+          <a href="#">Dribbble</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <a href="#">Privacy Policy</a>
+        <span>All rights reserved.</span>
+        <a href="#">Terms of Service</a>
+      </div>
+    </footer>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Your Company. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
