@@ -34,18 +34,12 @@
     header .logo {
       font-weight: bold;
     }
-    .navbar {
-            position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 24px;
-            background: #1b1b1b;
-        }
+   .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's higher than other elements */
+}
 
         .navbar nav {
             display: flex;
@@ -70,35 +64,118 @@
       cursor: pointer;
     }
 
-    .hero {
-      padding: 3rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
+}
 
-    .hero h1 {
-      font-size: 2.5rem;
-    }
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+}
 
-    .hero h1 .highlight {
-      color: #a4ff00;
-    }
+.hero h1 {
+  font-size: 2.8rem;
+  margin: 0;
+  line-height: 1.2;
+}
 
-    .hero p {
-      max-width: 500px;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-    }
+.highlight {
+  color: #a4ff00;
+}
 
-    .btn {
-      background-color: #a4ff00;
-      color: black;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      display: inline-block;
-      margin-top: 1rem;
-      font-weight: bold;
-    }
+.hero p {
+  max-width: 500px;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.btn {
+  background-color: #a4ff00;
+  color: black;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.hero-images {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+  height: 350px;
+}
+
+.hero-images img {
+  position: absolute;
+  border-radius: 10px;
+  background: #1a1a1a;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+.img-large {
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 60%;
+  z-index: 1;
+}
+
+.img-mid {
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  height: 55%;
+  z-index: 2;
+}
+
+.img-small {
+  top: 280px;
+  bottom: 10px;
+  right: 20px;
+  width: 60%;
+  height: 50%;
+  z-index: 3;
+}
+
+.clients-section {
+  padding: 50px 30px 30px;
+  text-align: left;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.clients-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 20px;
+}
+
+.clients-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+.clients-logos img {
+  background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+  border-radius: 10px;
+  padding: 10px;
+  width: 100px;
+  height: auto;
+}
+
 
     .cards-container,
     .services-container,
@@ -334,68 +411,71 @@
       display: none;
     }
 
-    .blogs-section {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
+   .blogs-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #0f0f0f;
+  color: white;
+}
 
-    .blogs-title {
-      font-size: 2rem;
-      margin-bottom: 0.25rem;
-    }
+.blogs-title {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
 
-    .highlight {
-      color: #a5ff32;
-    }
+   
+   .blogs-subtitle {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
 
-    .blogs-subtitle {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-bottom: 2rem;
-    }
+.blogs-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
 
-    .blogs-container {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
+.blog-card {
+  position: relative;
+  z-index: 1;
+  background-color: #1e2a0f;
+  border-radius: 20px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+}
 
-    .blog-card {
-      background-color: #1e2a0f;
-      border-radius: 20px;
-      padding: 1rem;
-      width: 420px;
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      transition: transform 0.3s;
-    }
+ .blog-card:hover {
+  transform: translateY(-5px);
+}
 
-    .blog-card:hover {
-      transform: translateY(-5px);
-    }
+.blog-image {
+  background-color: #111;
+  height: 160px;
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
 
-    .blog-image {
-      background-color: #111;
-      height: 160px;
-      width: 100%;
-      border-radius: 16px;
-      margin-bottom: 1rem;
-    }
+   .blog-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: white;
+}
 
-    .blog-info h3 {
-      margin: 0;
-      font-size: 1.05rem;
-      color: white;
-    }
+.blog-date {
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 0.3rem;
+}
 
-    .blog-date {
-      font-size: 0.85rem;
-      color: #ccc;
-      margin-top: 0.3rem;
-    }
 
     .cta-section {
       background-color: #111;
@@ -487,45 +567,34 @@
       text-decoration: underline;
     }
 
-    .clients-section {
-    padding: 40px 30px;
-    text-align: center;
-  }
-
-  .clients-logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-    .clients-logos img {
-    background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
-    border-radius: 10px;
-    padding: 10px;
-    width: 100px;
-  }
-
-   .hero-images {
-    position: relative;
-    flex: 1;
-    min-width: 300px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero-images img {
-    position: absolute;
-    border-radius: 10px;
-    background: #1a1a1a;
-    width: 100%;
-    height: 100%;
-  }
-
+  
   
 
     @media screen and (max-width: 768px) {
+      .hero {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-images {
+    height: 300px;
+    width: 100%;
+  }
+
+  .img-large, .img-mid, .img-small {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+  }
+    .clients-section h2 {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .clients-logos {
+    justify-content: center;
+    padding-left: 0;
+  }
       header {
         flex-direction: column;
         align-items: flex-start;
@@ -602,28 +671,31 @@
   </header>
 
   <section class="hero">
+  <div class="hero-text">
     <h1>Crafting <br> Bold Ideas <br> That <span class="highlight">Speak</span></h1>
     <p>
-      At Studio, we believe in the power of storytelling through design. Whether it’s a brand launch or a digital
-      transformation,
-      we craft experiences that connect with people and elevate businesses.
+      At VibeStudio, we believe in the power of storytelling through design. Whether it’s a brand launch or a digital
+      transformation, we craft experiences that connect with people and elevate businesses. Our team blends strategy
+      with creativity to build visual identities that not only look good but work hard.
     </p>
     <a href="#" class="btn">View Projects</a>
-     <div class="hero-images">
-    <img src="/profile.jpg" class="img-large">
-    <img src="/profile.jpg" class="img-mid">
-    <img src="/profile.jpg" class="img-small">
   </div>
-  </section>
 
-  <section class="clients-section">
+  <div class="hero-images">
+    <img src="profile.jpg" alt="Main Image" class="img-large">
+    <img src="profile.jpg" alt="Mid Image" class="img-mid">
+    <img src="profile.jpg" alt="Small Image" class="img-small">
+  </div>
+</section>
+
+<section class="clients-section">
   <h2>Our Trusted <span class="highlight">Clients</span></h2>
   <div class="clients-logos">
-    <img src="/profile.jpg" alt="Client 1">
-    <img src="/profile.jpg" alt="Client 2">
-    <img src="/profile.jpg" alt="Client 3">
-    <img src="/profile.jpg" alt="Client 4">
-    <img src="/profile.jpg" alt="Client 5">
+    <img src="profile.jpg" alt="Client 1">
+    <img src="profile.jpg" alt="Client 2">
+    <img src="profile.jpg" alt="Client 3">
+    <img src="profile.jpg" alt="Client 4">
+    <img src="profile.jpg" alt="Client 5">
   </div>
 </section>
 
