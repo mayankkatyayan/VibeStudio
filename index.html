@@ -34,11 +34,20 @@
     header .logo {
       font-weight: bold;
     }
-   .navbar {
+.navbar {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  z-index: 1000; /* Ensure it's higher than other elements */
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 1rem;
+  background-color: #1b1b1b;
+  flex-wrap: wrap;
 }
 
         .navbar nav {
@@ -188,8 +197,7 @@
     }
 
     .card,
-    .service-card,
-    .case-card {
+    .service-card{
       background: linear-gradient(to bottom, #1a1a1a, #1d2602);
       padding: 1rem;
       border-radius: 8px;
@@ -305,7 +313,7 @@
       width: 2px;
 
     }
-
+/* case study */
     .card-image {
       width: 100%;
       height: 200px;
@@ -316,35 +324,27 @@
     }
 
     .case-study-section {
-      background-color: #111;
-      padding: 2rem 1rem;
-      color: white;
-    }
+  background-color: #111;
+  padding: 2rem 5rem;
+  color: white;
+}
 
-    .section-title {
-      text-align: left;
-      font-size: 2rem;
-      margin-left: 1rem;
-    }
+ .section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 
-    .highlight {
-      color: #a5ff32;
-    }
 
     .carousel {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      display: flex;
-      flex-direction: column;
-    }
+  overflow: hidden;
+  position: relative;
+}
 
-    .carousel-track {
-      display: flex;
-      gap: 1.5rem;
-      padding: 1rem;
-      scroll-snap-align: start;
-      scroll-behavior: smooth;
-    }
+   .carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.6s ease-in-out;
+}
 
     .case-card {
       flex: 0 0 80%;
@@ -387,14 +387,12 @@
       display: inline-block;
     }
 
-    .carousel-indicators {
-      display: flex;
-      justify-content: flex-start;
-      gap: 8px;
-      margin: 1rem;
-      margin-left: 1.2rem;
-    }
-
+   .carousel-indicators {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 1rem;
+}
     .dot {
       width: 10px;
       height: 10px;
@@ -407,9 +405,6 @@
     }
 
   
-    .carousel::-webkit-scrollbar {
-      display: none;
-    }
 
    .blogs-section {
   text-align: center;
@@ -453,6 +448,7 @@
 
  .blog-card:hover {
   transform: translateY(-5px);
+  z-index: 10;
 }
 
 .blog-image {
@@ -655,8 +651,29 @@
       }
 
     }
+
+    
   </style>
 </head>
+
+<!-- for auto sliding functionality -->
+<script>
+  const track = document.getElementById('carousel-track');
+  const cards = document.querySelectorAll('.case-card');
+  let index = 0;
+
+  function autoSlide() {
+    index = (index + 1) % cards.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+  }
+
+  setInterval(autoSlide, 3000); 
+</script>
+
 
 <body>
   <header class = "navbar">
@@ -782,9 +799,9 @@
 
 
   <section class="case-study-section">
-    <h2 class="section-title">Case <span class="highlight">Study</span></h2>
-    <div class="carousel">
-      <div class="carousel-track">
+  <h2 class="section-title">Case <span class="highlight">Study</span></h2>
+  <div class="carousel">
+    <div class="carousel-track" id="carousel-track">
         <div class="case-card">
           <img src="/profile.jpg" alt="Project Screenshot"
             class="card-image" />
