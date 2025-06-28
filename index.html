@@ -347,15 +347,13 @@
 }
 
     .case-card {
-      flex: 0 0 80%;
-      background-color: #202a0f;
-      border-radius: 16px;
-      padding: 1rem;
-      scroll-snap-align: start;
-      display: flex;
-      flex-direction: column;
-      min-width: 80%;
-    }
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
+  padding: 1rem;
+  background-color: #202a0f;
+  border-radius: 16px;
+}
 
     .image-placeholder {
       background-color: #111;
@@ -656,23 +654,7 @@
   </style>
 </head>
 
-<!-- for auto sliding functionality -->
-<script>
-  const track = document.getElementById('carousel-track');
-  const cards = document.querySelectorAll('.case-card');
-  let index = 0;
 
-  function autoSlide() {
-    index = (index + 1) % cards.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
-
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach(dot => dot.classList.remove('active'));
-    if (dots[index]) dots[index].classList.add('active');
-  }
-
-  setInterval(autoSlide, 3000); 
-</script>
 
 
 <body>
@@ -911,6 +893,25 @@
     </div>
   </footer>
 </section>
+
+<!-- for auto sliding functionality -->
+<script>
+  const track = document.getElementById('carousel-track');
+  const cards = document.querySelectorAll('.case-card');
+  let index = 0;
+
+  function autoSlide() {
+    index = (index + 1) % cards.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+  }
+
+  setInterval(autoSlide, 3000); 
+</script>
+
 
 
 </body>
