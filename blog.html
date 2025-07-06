@@ -52,12 +52,15 @@
       top: 0;
       left: 0;
       right: 0;
+      width: 100%;
+      z-index: 1000;
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 16px 24px;
-      background: #1b1b1b;
+      gap: 1rem;
+      background-color: #1b1b1b;
+      flex-wrap: wrap;
     }
 
     .navbar nav {
@@ -92,6 +95,8 @@
       gap: 40px;
       padding: 50px 40px;
       flex-wrap: wrap;
+      top: 60px;
+      position: relative;
     }
 
     .blog-content {
@@ -100,13 +105,13 @@
     }
 
     .blog-image {
-      flex: 1 1 300px;
+      flex: 1 1 200px;
       background-color: #1b1b1b;
       border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 400px;
+      min-height: 200px;
     }
 
     .blog-image img {
@@ -302,13 +307,14 @@
       }
 
       .blog-image {
-        min-height: 200px;
+        min-height: auto;
       }
 
       .navbar {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+
       }
 
       .navbar nav {
@@ -379,7 +385,7 @@
     </div>
 
     <div class="blog-image">
-      <img src="https://placehold.co/500x400/1b1b1b/ffffff.svg?text=Blog+Image" alt="Blog illustration" />
+      <img src="profile.jpg" alt="Blog illustration" />
     </div>
   </section>
   <section class="related-blogs">
@@ -388,19 +394,19 @@
 
     <div class="blog-cards">
       <div class="blog-card">
-        <img src="https://placehold.co/500x300/1b1b1b/ffffff.svg?text=Image+1" alt="Blog 1">
+        <img src="profile.jpg" alt="Blog 1">
         <div class="blog-title">Designing for Emotions</div>
         <div class="blog-date">Jan 22, 2025</div>
       </div>
 
       <div class="blog-card">
-        <img src="https://placehold.co/500x300/1b1b1b/ffffff.svg?text=Image+2" alt="Blog 2">
+        <img src="profile.jpg" alt="Blog 2">
         <div class="blog-title">5 Figma Plugins</div>
         <div class="blog-date">Feb 3, 2025</div>
       </div>
 
       <div class="blog-card">
-        <img src="https://placehold.co/500x300/1b1b1b/ffffff.svg?text=Image+3" alt="Blog 3">
+        <img src="profile.jpg" alt="Blog 3">
         <div class="blog-title">Moodboarding 101</div>
         <div class="blog-date">Mar 10, 2025</div>
       </div>
